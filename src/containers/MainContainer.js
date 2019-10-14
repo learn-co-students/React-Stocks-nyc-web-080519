@@ -22,10 +22,12 @@ class MainContainer extends Component {
   }
 
   stockClickHandler = (stock) => {
-    let newPortfolio = [...this.state.portfolio, stock]
-    this.setState({
-      portfolio: newPortfolio
-    })
+    if (!this.state.portfolio.includes(stock)) {
+      let newPortfolio = [...this.state.portfolio, stock]
+      this.setState({
+        portfolio: newPortfolio
+      })
+    }
   }
 
   portfolioClickHandler = (stock) => {
@@ -37,7 +39,6 @@ class MainContainer extends Component {
   }
 
   checkboxHandler = (e) => {
-    console.log("changed checkbox")
     let filteredStocksCopy = [...this.state.filteredStocks]
     if (e.target.value === "Alphabetically") {
       this.setState({
