@@ -4,6 +4,7 @@ import PortfolioContainer from './PortfolioContainer'
 import SearchBar from '../components/SearchBar'
 // import { runInThisContext } from 'vm';
 
+//the gif in the readme is wrong; adapt the search form by adding "All" as a filter type and add name attributes to radio buttons so only one can be selected at a time
 class MainContainer extends Component {
   state = {
     stocks: [],
@@ -44,7 +45,7 @@ class MainContainer extends Component {
     return this.state.stocks.filter(stock => stock.portfolio)
   }
 
-  //seems like browser won't let the radio to be deselected once clicked???
+
   sortStocks = (e) => {
     if (e.target.value === "Alphabetically") {
       this.setState({alpha: !this.state.alpha})

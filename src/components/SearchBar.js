@@ -2,8 +2,6 @@ import React from 'react';
 
 const SearchBar = (props) => {
 
-
-  //onChange for the radios needs to update state to true and then checked should derive its value from this.props.alpha/price
   const radioOnChange = (e) => {
     props.sortStocks(e.target.value)
   }
@@ -12,9 +10,10 @@ const SearchBar = (props) => {
     props.filterStocks(e.target.value)
   }
  
+  //add same name attribute to radio buttons to make sure only one can be selected at a time
   return (
     <div>
-
+      
       <strong>Sort by:</strong>
       <label>
         <input type="radio" value="Alphabetically" name="sort" checked={null} onChange={radioOnChange} />
