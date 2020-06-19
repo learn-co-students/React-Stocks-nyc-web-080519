@@ -1,32 +1,31 @@
 import React from 'react';
 
-const SearchBar = () => {
-  return (
-    <div>
+const SearchBar = (props) => {
 
-      <strong>Sort by:</strong>
-      <label>
-        <input type="radio" value="Alphabetically" checked={null} onChange={null}/>
-        Alphabetically
-      </label>
-      <label>
-        <input type="radio" value="Price" checked={null} onChange={null}/>
-        Price
-      </label>
-      <br/>
-
-      <label>
-        <strong>Filter:</strong>
-        <select onChange={null}>
-          <option value="Tech">Tech</option>
-          <option value="Sportswear">Sportswear</option>
-          <option value="Finance">Finance</option>
-        </select>
-      </label>
-
-
-    </div>
-  );
+    return (
+      <div>
+        <strong>Sort by:</strong>
+        <label>
+          <input type="radio" value="Alphabetically" checked={props.state.radio === "Alphabetically"} onChange={props.changeRadio}/>
+          Alphabetically
+        </label>
+        <label>
+          <input type="radio" value="Price" checked={props.state.radio === "Price"} onChange={props.changeRadio}/>
+          Price
+        </label>
+        <br/>
+  
+        <label>
+          <strong>Filter:</strong>
+          <select onChange={props.changeFilter}>
+            <option value="">All</option>
+            <option value="Tech">Tech</option>
+            <option value="Sportswear">Sportswear</option>
+            <option value="Finance">Finance</option>
+          </select>
+        </label>
+      </div>
+    ) // ends Return
 }
 
 
